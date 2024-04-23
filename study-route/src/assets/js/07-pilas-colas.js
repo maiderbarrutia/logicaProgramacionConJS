@@ -294,38 +294,6 @@ console.log("Página siguiente: " + browser.currentPage);
 
 console.log("\n ---------------- Impresora compartida: -----------------")
 
-// class SharedPrinter{
-//     constructor(){
-//         this.documents = [];
-//     }
-
-//     receiveDocuments(document){
-//         this.documents.push(document);
-//         return this.documents;
-//     }
-
-//     printDocuments(){
-//         let documentList = '';
-//         if (this.documents.length === 0) {
-//             return "No hay documentos en espera.";
-//         }
-//         for (let i = 0; i < this.documents.length; i++) {
-//             const document = this.documents[i];
-//             documentList += `Documento ${i+1}: ${document}\n`;
-//         }
-//         return documentList;
-//     }
-// }
-
-// const impresora = new SharedPrinter();
-// // console.log("Añadir documento: " + impresora.receiveDocuments("document1.pdf")); 
-// // console.log("Añadir documento: " + impresora.receiveDocuments("document2.pdf")); 
-// // console.log("Añadir documento: " + impresora.receiveDocuments("document3.pdf")); 
-
-
-// console.log("Imprimir documentos: " + impresora.printDocuments());  
-
-
 class SharedPrinter {
     constructor() {
         this.documents = [];
