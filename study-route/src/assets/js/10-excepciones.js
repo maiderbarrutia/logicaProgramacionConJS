@@ -35,16 +35,33 @@ try {
     console.log("El bloque finally se ejecuta siempre");
 }
 
+//LISTA DE TIPOS DE ERRORES EN JAVASCRIPT:
+/*
+- *RangeError: Se lanza cuando se establece una variable con un valor fuera de su rango de valores legales.
+- *ReferenceError: Se produce cuando algo está mal con la referencia de una variable en tu código.
+- *TypeError: Se produce cuando algún valor no resulta ser de un determinado tipo esperado
+- InternalError: se utiliza cuando se produce una excepción en el motor de ejecución de JavaScript. 
+- URIError: se produce cuando se utiliza de forma ilegal una función global de manejo de URI como decodeURIComponent
+- EvalError: se produce cuando se produce un error en una llamada a la función eval()
+*/
+
 
 //PROGRAMA
 console.log("\n ---------------- PROGRAMA -----------------\n")
 
-function TooLargeError(mensaje) {
-    this.name = "¡Error!";
-    this.message = mensaje || "¡Ocurrió un error!";
-}
+// function TooLargeError(mensaje) {
+//     this.name = "¡Error!";
+//     this.message = mensaje || "¡Ocurrió un error!";
+// }
 // TooLargeError.prototype = Object.create(Error.prototype);
 // TooLargeError.prototype.constructor = TooLargeError;
+
+class ValidationError extends Error {
+    constructor(message) {
+        super(message);
+        this.name = "¡ValidationError!";
+    }
+}
 
 function excepciones(parametro1, parametro2) {
     if (typeof parametro1 !== "number" || typeof parametro2 !== "number") {
@@ -54,7 +71,8 @@ function excepciones(parametro1, parametro2) {
         throw new RangeError("Los parámetros no pueden ser negativos");
     }
     if (parametro1 > 100000000 || parametro2 > 100000000) {
-    throw new TooLargeError("Los parametros no pueden ser tan grandes");
+    // throw new TooLargeError("Los parametros no pueden ser tan grandes");
+        throw new ValidationError("Los parámetros no pueden ser tan grandes")
     }
 }
 

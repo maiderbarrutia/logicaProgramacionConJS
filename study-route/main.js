@@ -10,7 +10,13 @@
 // import * as pilasColas from './src/assets/js/07-pilas-colas';
 // import * as clases from './src/assets/js/08-clases';
 // import * as herenciaPolimorfismo from './src/assets/js/09-herencia-polimorfismo';
-import * as excepciones from './src/assets/js/10-excepciones';
+// import * as excepciones from './src/assets/js/10-excepciones';
+// import * as manejoFicheros from "./src/assets/js/11-manejo-ficheros";
+// import * as jsonXml from "./src/assets/js/13-json-xml";
+// import * as pruebasUnitarias from "./src/assets/js/14-pruebas-unitarias";
+import * as fechas from "./src/assets/js/15-fechas";
+
+
 
 
 //00-sintaxis-var-datos.js
@@ -47,4 +53,16 @@ import * as excepciones from './src/assets/js/10-excepciones';
 // herenciaPolimorfismo
 
 //10-excepciones.js
-excepciones
+// excepciones
+
+//11-manejo-ficheros.js
+// manejoFicheros
+
+//13-json-xml.js
+// jsonXml
+
+//14-pruebas-unitarias.js
+// pruebasUnitarias
+
+//15-fechas.js
+fechas
