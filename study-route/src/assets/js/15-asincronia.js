@@ -56,7 +56,7 @@ function ejecutarPromesa() {
 
 // ejecutarPromesa()
 
-//Async /await
+//Async /await (https://lenguajejs.com/javascript/asincronia/async-await/)
 async function ejecutarTarea2(nombre, segundos) {
     console.log(`async /await --> ${nombre}: Empieza ahora.`);
     // await new Promise(resolve => setTimeout(resolve, segundos * 1000));
@@ -76,7 +76,9 @@ async function ejecutarAsync() {
       await ejecutarTarea2('Tarea 2', 2);
       await ejecutarTarea2('Tarea 3', 4);
     } catch (error) {
-      console.error('async /await--> Ocurrió un error:', error);
+        console.error('async /await--> Ocurrió un error:', error);
+    } finally{
+        console.log("async /await--> Ejecuciones sin mirar el error");
     }
 }
   
@@ -111,6 +113,9 @@ function obtenerDatosConPromesa() {
         })
         .catch(error => {
             console.error('Ocurrió un error al obtener los datos con promesa:', error.message);
+        })
+        .finally(()=>{
+            console.log('Fin de la llamada a la api');
         });
 }
 
@@ -173,7 +178,7 @@ async function obtenerDatosConAxios() {
 
 // obtenerDatosConAxios();
 
-
+//PROGRAMA
 console.log("\n ---------------- PROGRAMA -----------------\n")
 
 // Función C que simula una tarea que dura 3 segundos
