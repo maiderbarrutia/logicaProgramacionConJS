@@ -54,4 +54,3 @@ function validarUrl(url) {
     url.match(regexUrl) ? console.log(`La url "${url}" es válida.`) : console.log(`La url "${url}" no es válida.`);
 }
 validarUrl('http://lenguajejs.com/');
-

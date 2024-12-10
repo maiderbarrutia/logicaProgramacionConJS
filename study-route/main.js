@@ -16,7 +16,14 @@
 // import * as pruebasUnitarias from "./src/assets/js/13-pruebas-unitarias";
 // import * as fechas from "./src/assets/js/14-fechas";
 // import * as asincronia from "./src/assets/js/15-asincronia";
-import * as expresionesRegulares from "./src/assets/js/16-expresiones-regulares";
+// import * as expresionesRegulares from "./src/assets/js/16-expresiones-regulares";
+// import * as iteraciones from "./src/assets/js/17-iteraciones";
+// import * as conjuntos from "./src/assets/js/18-conjuntos";
+// import * as enumeraciones from "./src/assets/js/19-enumeraciones";
+// import * as peticiones from "./src/assets/js/20-peticiones-http";
+// import * as callbacks from "./src/assets/js/21-callbacks";
+import * as funcionesAvanzadas from "./src/assets/js/22-funciones-orden-superior";
+
 
 
 
@@ -74,4 +81,22 @@ import * as expresionesRegulares from "./src/assets/js/16-expresiones-regulares"
 // asincronia
 
 //16-expresiones-regulares.js
-expresionesRegulares
+// expresionesRegulares
+
+//17-iteraciones.js
+// iteraciones
+
+//18-conjuntos.js
+// conjuntos
+
+//19-enumeraciones.js
+// enumeraciones
+
+//20-peticiones-http.js
+// peticiones
+
+//21-callbacks.js
+// callbacks
+
+//22-funciones-orden-superior.js
+funcionesAvanzadas

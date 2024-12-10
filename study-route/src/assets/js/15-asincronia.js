@@ -56,6 +56,78 @@ function ejecutarPromesa() {
 
 // ejecutarPromesa()
 
+//Promesas con Promise.allSettled
+    /*  - Espera a que todas las promesas se completen, ya sea exitosamente o fallando.
+        - Nunca "rechaza"; en su lugar, devuelve un array con el estado de cada promesa.*/
+    
+        // Simulamos tareas que se resuelven o rechazan
+const tareasPromesas = [
+    new Promise((resolve) => setTimeout(() => resolve("Tarea 1 completada"), 2000)),
+    new Promise((_, reject) => setTimeout(() => reject("Tarea 2 falló"), 3000)),
+    new Promise((resolve) => setTimeout(() => resolve("Tarea 3 completada"), 1000)),
+];
+
+    // Promise.allSettled para manejar resultados
+function ejecutarAllSettled() {
+    Promise.allSettled(tareasPromesas).then((resultados) => {
+        resultados.forEach((resultado, index) => {
+            if (resultado.status === "fulfilled") {
+                console.log(`Promesa ${index + 1}: ${resultado.value}`);
+            } else {
+                console.error(`Promesa ${index + 1}: ${resultado.reason}`);
+            }
+        });
+    });
+}
+
+// ejecutarAllSettled();
+
+//Promesas con Promise.all
+    /*  - Resuelve si todas las promesas son exitosas.
+        - Falla en cuanto una promesa es rechazada.
+        - Si alguna de las promesas falla, Promise.all rechazará la ejecución y pasará directamente al catch.
+    */
+
+// Ejemplo con Promise.all
+// Simulamos tareas que pueden completarse correctamente o fallar
+function tarea(nombre, duracion, debeFallar = false) {
+    return new Promise((resolve, reject) => {
+        console.log(`${nombre}: Inicia (${duracion} segundos)`);
+        setTimeout(() => {
+            if (debeFallar) {
+                reject(new Error(`${nombre}: Falló después de ${duracion} segundos.`));
+            } else {
+                resolve(`${nombre}: Completada en ${duracion} segundos.`);
+            }
+        }, duracion * 1000);
+    });
+}
+
+// Ejemplo con Promise.all
+function ejecutarPromiseAll() {
+    const tareas = [
+        tarea("Promise.all: Tarea 1", 2), // Tarea que se completa en 2 segundos
+        tarea("Promise.all: Tarea 2", 3, true), // Tarea que se completa en 3 segundos
+        tarea("Promise.all: Tarea 3", 1), // Tarea que se completa en 1 segundo
+    ];
+
+    Promise.all(tareas)
+        .then((resultados) => {
+            console.log("Todas las tareas completadas:");
+            resultados.forEach((resultado, index) => {
+                console.log(`Resultado de tarea ${index + 1}: ${resultado}`);
+            });
+        })
+        .catch((error) => {
+            console.error("Una de las tareas falló:", error.message);
+        });
+}
+
+// ejecutarPromiseAll();
+
+        
+
+
 //Async /await (https://lenguajejs.com/javascript/asincronia/async-await/)
 async function ejecutarTarea2(nombre, segundos) {
     console.log(`async /await --> ${nombre}: Empieza ahora.`);
@@ -96,6 +168,38 @@ function operacionAsincrona(callback) {
 // operacionAsincrona(() => {
 //     console.log("Callback --> Fin de la operación.");
 // });
+
+//Generador asincrono yield
+    // Generador asíncrono que simula tareas que tardan distintos tiempos
+async function* generadorAsincrono(tareas) {
+    for (const tarea of tareas) {
+        console.log(`Generador: Ejecutando tarea ${tarea.nombre}...`);
+        await new Promise((resolve) => setTimeout(resolve, tarea.duracion * 1000));
+        yield `Generador: Tarea ${tarea.nombre} completada en ${tarea.duracion} segundos`;
+    }
+}
+
+    // Usando el generador asíncrono
+async function ejecutarConGenerador() {
+    const tareas = [
+        { nombre: "A", duracion: 3 },
+        { nombre: "B", duracion: 2 },
+        { nombre: "C", duracion: 1 },
+    ];
+
+    const generador = generadorAsincrono(tareas);
+
+    for await (const resultado of generador) {
+        console.log(resultado);
+    }
+    console.log("Generador: Todas las tareas completadas.");
+}
+
+// ejecutarConGenerador();
+
+
+
+
   
 console.log("\n ---------------- LLAMADA A API: -----------------\n")
 
@@ -234,4 +338,4 @@ async function ejecutarFunciones() {
 }
 
 // Ejecutar el programa
-ejecutarFunciones();
+// ejecutarFunciones();
